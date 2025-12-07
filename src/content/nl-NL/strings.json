@@ -46,6 +46,12 @@
         "welcomeSubtitle": "We provide everything you need to take on the Galactization (G11n) Challenge (and win).",
         "symbolAlt": "Imperial Credit currency symbol"
     },
+    "HomeAlt": {
+        "productImageAlt": "{product} image"
+    },
+    "HomeTitle": {
+        "welcomeTitle": "Welcome to Galaxy L10n Supplies!"
+    },
     "Browse": {
         "browseTitleAll": "All",
         "browseTitleDroids": " droids",
@@ -95,7 +101,8 @@
     },
     "Order": {
         "statusProcessing": "Processing",
-        "statusShipped": "Shipped"
+        "statusShipped": "Shipped",
+        "statusDelivered": "Delivered"
     },
     "OrderHistory": {
         "historyTitle": "Order History",

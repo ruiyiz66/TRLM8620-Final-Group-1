@@ -4,12 +4,14 @@ import i18n from "../../services/i18n.js";
 let Home = {
     render : async () => {
         //fetch localizable strings via i18n method 'getString'
+        let welcomeTitle = i18n.getString("HomeTitle", "welcomeTitle");
         let welcomeSubtitle = i18n.getString("Home", "welcomeSubtitle");
+        let productImageAlt = i18n.getString("HomeAlt", "productImageAlt");
 
         //view is solely for HTML markup, contains no static text
         let view = `
                     <section class="welcome">
-                        <h1 class="center">Welcome to Galaxy L10n Supplies!</h1>
+                        <h1 class="center">${welcomeTitle}</h1>
                         <h3 class="center white">${welcomeSubtitle}</h3>
                     </section>
                     <div class="browseGrid homeGrid">`;
@@ -18,7 +20,7 @@ let Home = {
         featuredProducts.forEach((product, key) => {
 
             //string to give image an alt tag for accessibility
-            let imageAlt = product.title + " image";
+            let imageAlt = productImageAlt.replace("{product}", product.title);
 
             view += `
                     <article id="${product.productID}" class="${product.type}">
