@@ -19,6 +19,7 @@ import i18n from './services/i18n.js';
 import Products from './content/products.js';
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 // 支持的 locale 列表，用于 language selector 显示本地语言名称（autonyms）
 const locales = [
     {
@@ -39,6 +40,8 @@ const locales = [
 ];
 
 =======
+=======
+>>>>>>> Stashed changes
 // Supported locales with autonym labels (do NOT translate these)
 const locales = [
     { code: "en-US", label: "English (US)" },
@@ -46,6 +49,9 @@ const locales = [
     { code: "zh-CN", label: "简体中文（中国）" }
   ];
   
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 //********************** 
