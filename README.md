@@ -10,7 +10,7 @@ Built with vanilla JS modules (`src/views/*`), `live-server` for dev, and `Intl`
 
 # Localization Plan
 - Project brief and assets: https://www.canva.com/design/DAG6zp4PUjw/MpxGW5QW9NQnB27aYVmkpA/edit
-- Strings: `src/content/<locale>/strings.json` (current locales: `en-US`, `nl-NL`, `zh-CN`).
+- Strings: `src/content/<locale>/strings.json` (current locales: `en-US`, `zh-CN`).
 - Terms pages: `src/static/<locale>/terms.html`.
 - Currency/date: handled via `src/services/i18n.js` with `Intl`.
 
@@ -29,6 +29,6 @@ Open the URL printed by `live-server` (default http://127.0.0.1:8080).
 
 # Reflection
 - Julia: see slide deck (link above).
-- Cathy: 
+- Cathy: see slide deck (link above).
 - Ruiyi: see slide deck (link above).
 - Yanlin: https://www.notion.so/Reflection-2c38613a895e80a0b3c5cf9fd0708afe
