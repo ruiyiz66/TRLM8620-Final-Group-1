@@ -1,6 +1,13 @@
 import Utils from "../../services/Utils.js";
-import { locale, updateLocale, showCart} from "../../app.js";
+import { locale, updateLocale, showCart } from "../../app.js";
 import i18n from "../../services/i18n.js";
+
+// 固定的 locale 选项，自称名（不会被翻译）
+const LOCALE_OPTIONS = [
+    { code: "en-US", label: "English (US)" },
+    { code: "nl-NL", label: "Nederland (Nederlands)" },
+    { code: "zh-CN", label: "简体中文（中国）" }
+];
 
 //global dropdown element reference
 let drop;
@@ -21,10 +28,12 @@ let Navbar = {
         let navLinkVehicles = i18n.getString("Navbar", "navLinkVehicles");
 
         let localeLabel = i18n.getString("LocaleSelector", "localeLabel");
-        let localeUS = i18n.getString("LocaleSelector", "localeUS");
-        let localeCN = i18n.getString("LocaleSelector", "localeCN");
-        let localeNL = i18n.getString("LocaleSelector", "localeNL");
+        // 注意：不再从 i18n 取 localeUS/localeCN/localeNL
 
+        // 用 LOCALE_OPTIONS 构建下拉项 HTML
+        const localeOptionsHTML = LOCALE_OPTIONS.map(opt => `
+            <option value="${opt.code}">${opt.label}</option>
+        `).join("");
 
         //view is solely for HTML markup, contains no static text
         let view =
@@ -55,9 +64,7 @@ let Navbar = {
             <div class="localeSelector">
               <label for="locale"><h3>${localeLabel}</h3></label>
               <select id="locale" class="hamDrop">
-                <option value="en-US">${localeUS}</option>
-                <option value="nl-NL">${localeNL}</option>
-                <option value="zh-CN">${localeCN}</option>
+                ${localeOptionsHTML}
               </select>
             </div>
         </section>
@@ -71,7 +78,7 @@ let Navbar = {
         </ul>
     </nav>
     `;
-        return view
+        return view;
     },
     after_render: async () => {
 
@@ -108,28 +115,29 @@ let Navbar = {
             }
         }
 
+        // locale selector
         drop = document.querySelector('#locale');
         //show selected locale in dropdown
         drop.value = locale;
         //listen for locale changes
         drop.addEventListener("input", changeLocale, false);
     }
-}
+};
 
 //function to hide cart (only when it's currently visible)
 var hideCart = e => {
     console.log('click to hide triggered');
-    var slider = document.querySelector(".cartSlider")
+    var slider = document.querySelector(".cartSlider");
     var bg = document.querySelector('.bg');
 
     slider.classList.remove('showCart');
     bg.classList.remove('overlay');
-}
+};
 
 //function to change locale and reload page
 var changeLocale = (e) => {
     let newLocale = drop.value;
     updateLocale(newLocale);
-}
+};
 
 export default Navbar;
