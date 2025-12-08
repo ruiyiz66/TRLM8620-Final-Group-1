@@ -6,6 +6,89 @@ import { Order } from "../classes/Order.js";
 
 //TODO: add click listeners for updating qty or deleting items from cart
 
+import { locale } from "../../app.js";
+
+function renderExpiryDate(i18n, locale) {
+  const expMonthPlaceholder = i18n.getString("Checkout", "expMonthPlaceholder");
+  const expYearPlaceholder  = i18n.getString("Checkout", "expYearPlaceholder");
+  const expSeparator        = i18n.getString("Checkout", "expSeparator");
+
+  let monthOptions = '';
+  for (let i = 1; i <= 12; i++) {
+    const mm = ("0" + i).slice(-2);
+    monthOptions += `<option value="${mm}">${mm}</option>`;
+  }
+
+  const currentYear = new Date().getFullYear() % 100;
+  let yearOptions = '';
+  for (let i = 0; i <= 15; i++) {
+    const yy = ("0" + ((currentYear + i) % 100)).slice(-2);
+    yearOptions += `<option value="${yy}">${yy}</option>`;
+  }
+
+  return `
+    <select id="expDate" name="expDate" class="checkoutInput">
+      <option value="" disabled selected hidden>${expMonthPlaceholder}</option>
+      ${monthOptions}
+    </select>
+    <span>${expSeparator}</span>
+    <select id="expDateYear" name="expDateYear" class="checkoutInput">
+      <option value="" disabled selected hidden>${expYearPlaceholder}</option>
+      ${yearOptions}
+    </select>
+  `;
+}
+
+function renderNameFields(i18n) {
+  const firstNameLabel = i18n.getString("Checkout", "firstNameLabel");
+  const lastNameLabel  = i18n.getString("Checkout", "lastNameLabel");
+  const layout         = i18n.getString("Checkout", "nameLayout") || "given-family";
+
+  if (layout === "family-given") {
+    return `
+      <div class="formElement name">
+        <label for="lastName">${lastNameLabel}</label>
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          class="checkoutInput"
+          placeholder="${lastNameLabel}">
+      </div>
+      <div class="formElement name">
+        <label for="firstName">${firstNameLabel}</label>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          class="checkoutInput"
+          placeholder="${firstNameLabel}">
+      </div>
+    `;
+  }
+
+  return `
+    <div class="formElement name">
+      <label for="firstName">${firstNameLabel}</label>
+      <input
+        type="text"
+        id="firstName"
+        name="firstName"
+        class="checkoutInput"
+        placeholder="${firstNameLabel}">
+    </div>
+    <div class="formElement name">
+      <label for="lastName">${lastNameLabel}</label>
+      <input
+        type="text"
+        id="lastName"
+        name="lastName"
+        class="checkoutInput"
+        placeholder="${lastNameLabel}">
+    </div>
+  `;
+}
+
 var total;
 
 let Checkout = {
@@ -56,15 +139,7 @@ let Checkout = {
                 <div class="shippingInfo">
                     <h2>${shipSectionLabel}</h2>
                     <div class="form">
-                        <div class="formInline">
-                            <div class="formElement name">
-                                <label for="firstName">${firstNameLabel}</label>
-                                <input type="text" id="firstName" name="firstName" class="checkoutInput" placeholder="${firstNameLabel}">
-                            </div>
-                            <div class="formElement name">
-                                <label for="lastName">${lastNameLabel}</label>
-                                <input type="text" id="lastName" name="lastName" class="checkoutInput" placeholder="${lastNameLabel}">
-                            </div>
+                        <div class="formInline">${renderNameFields(i18n)}
                         </div>
 
                         <div class="formInline">
@@ -101,37 +176,16 @@ let Checkout = {
                                 <label for="account">${accountLabel}</label>
                                 <input type="text" id="account" name="account" class="checkoutInput" placeholder="${accountHolder}">
                             </div>
-                            <div class="formElement margin">
-                                <label for="code">${securityLabel}</label>
-                                <input type="text" id="code" name="code" class="checkoutInput" placeholder="${securityHolder}">
-                            </div>
-                            <div class="formElement">
-                                <label for="expDate">${expDateLabel}</label>
-                                <div id="expDropdown">
-                                    <select id="expDate" name="expDate" class="checkoutInput">
-                                        <option value="" disabled selected hidden>MM</option>
-                                        `;
-        for (let i = 1; i <= 31; i++) {
-            var formattedNumber = ("0" + i).slice(-2); //$NON-NLS-L$
-            view += `<option value="${formattedNumber}">${formattedNumber}</option>`;
-        }
-        view += `
-                                    </select>
-                                    <h3>/</h3>
-                                    <select id="expDateYear" name="expDateYear" class="checkoutInput">
-                                        <option value="" disabled selected hidden>YY</option>
-                                        `;
-        for (let i = 1; i <= 12; i++) {
-            var formattedNumber = ("0" + i).slice(-2); //$NON-NLS-L$
-            view += `<option value="${formattedNumber}">${formattedNumber}</option>`;
-        }
-        view += `
-                                    </select>
-                                </div>
+ 
+                        <div class="formElement">
+                            <label for="expDate">${expDateLabel}</label>
+                            <div id="expDropdown">
+                                ${renderExpiryDate(i18n, locale)}
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
                 <button class="orderButt">${orderLabel}</button>
             </div>
