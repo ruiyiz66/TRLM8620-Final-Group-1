@@ -57,12 +57,15 @@
         "browseTitleDroids": " 机器人",
         "browseTitleVehicles": " 载具"
     },
-    
+        "Global": {
+        "siteTitle": "银河本地化补给站"
+    },
+
     "Checkout": {
         "checkoutTitle": "结账",
         "shipSectionLabel": "配送信息",
-        "firstNameLabel": "名",
-        "lastNameLabel": "姓",
+        "firstNameLabel": "名字",
+        "lastNameLabel": "姓氏",
         "coordinatesLabel": "坐标",
         "coordinatesHolder": "0,0,0",
         "sectorLabel": "星区",
@@ -72,7 +75,7 @@
         "shipStandard": "标准",
         "paySectionLabel": "支付",
         "payNameLabel": "持卡人姓名",
-        "payNameHolder": "名 姓",
+        "payNameHolder": "请输入与银行卡信息一致的姓名",
         "accountLabel": "账号",
         "accountHolder": "1234567-9876-00",
         "securityLabel": "安全码",
@@ -85,7 +88,11 @@
         "termsStatement": "我已阅读并同意条款与条件",
         "termsLink": "（查看）",
         "successMessage": "下单成功！",
-        "noItemMessage": "购物车为空，无法结账。"
+        "noItemMessage": "购物车为空，无法结账。",
+        "expMonthPlaceholder": "月份",
+        "expYearPlaceholder": "年份",
+        "expSeparator": "/",
+        "nameLayout": "family-given"
     },
     "ProductShow": {
         "qtyLabel": "数量：",

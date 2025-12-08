@@ -80,6 +80,11 @@ var updateLocale = async(newLocale) => {
     router();
 }
 
+function updateDocumentTitle() {
+  const title = i18n.getString("Global", "siteTitle");
+  document.title = title;
+}
+
 //update the shopping cart based on the new product list
 var reloadCart = () => {
 
@@ -279,7 +284,7 @@ const router = async () => {
     let loadPage = await import(`./views/pages/${page}`);
     content.innerHTML = await loadPage.default.render();
     await loadPage.default.after_render();
-    
+    updateDocumentTitle();
 }
 
 

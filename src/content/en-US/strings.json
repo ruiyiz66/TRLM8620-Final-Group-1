@@ -57,6 +57,9 @@
         "browseTitleDroids": " droids",
         "browseTitleVehicles": " vehicles"
     },
+    "Global": {
+        "siteTitle": "Galaxy L10n Supplies"
+    },
     
     "Checkout": {
         "checkoutTitle": "Checkout",
@@ -71,7 +74,7 @@
         "shipOvernight": "Overnight",
         "shipStandard": "Standard",
         "paySectionLabel": "Payment",
-        "payNameLabel": "Name on Card",
+        "payNameLabel": "Please Insert Name on Card",
         "payNameHolder": "First Last",
         "accountLabel": "Credit Number",
         "accountHolder": "1234567-9876-00",
@@ -85,7 +88,11 @@
         "termsStatement": "I have read and agree to the Terms and Conditions",
         "termsLink": "(View)",
         "successMessage": "Order placed successfully!",
-        "noItemMessage": "Add items to cart to checkout."
+        "noItemMessage": "Add items to cart to checkout.",
+        "expMonthPlaceholder": "MM",
+        "expYearPlaceholder": "YY",
+        "expSeparator": "/",
+        "nameLayout": "given-family"
     },
     "ProductShow": {
         "qtyLabel": "Qty: ",
