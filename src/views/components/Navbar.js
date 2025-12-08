@@ -2,7 +2,6 @@ import Utils from "../../services/Utils.js";
 import { locale, updateLocale, showCart } from "../../app.js";
 import i18n from "../../services/i18n.js";
 
-// 固定的 locale 选项，自称名（不会被翻译）
 const LOCALE_OPTIONS = [
     { code: "en-US", label: "English (US)" },
     { code: "nl-NL", label: "Nederland (Nederlands)" },
