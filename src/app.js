@@ -18,6 +18,24 @@ import i18n from './services/i18n.js';
 
 import Products from './content/products.js';
 
+// 支持的 locale 列表，用于 language selector 显示本地语言名称（autonyms）
+const locales = [
+    {
+        code: "en-US",
+        label: "English (US)",
+        lang: "en"
+    },
+    {
+        code: "zh-CN",
+        label: "简体中文（中国大陆）",
+        lang: "zh"
+    },
+    {
+        code: "nl-NL",
+        label: "Nederlands (Nederland)",
+        lang: "nl"
+    }
+];
 
 
 //********************** 
@@ -224,6 +242,7 @@ let getFeaturedProducts = async () => {
 }
 
 export { shoppingCart, addToCart, showCart, router, locale, productList, updateLocale, orderHistory, featuredProducts, saveCart };
+
 
 // List of supported routes. Any url other than these routes will throw a 404 error
 const routes = {
