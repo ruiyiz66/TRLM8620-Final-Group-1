@@ -53,9 +53,9 @@
         "welcomeTitle": "欢迎来到银河本地化物资！"
     },
     "Browse": {
-        "browseTitleAll": "全部",
-        "browseTitleDroids": " 机器人",
-        "browseTitleVehicles": " 载具"
+        "browseTitleAll": "全部商品",
+        "browseTitleDroids": "全部机器人",
+        "browseTitleVehicles": "全部载具"
     },
         "Global": {
         "siteTitle": "银河本地化补给站"

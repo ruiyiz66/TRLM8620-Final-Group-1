@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "server": "live-server src --verbose",
+    "server": "live-server src --verbose"
   },
   "license": "ISC",
   "devDependencies": {
