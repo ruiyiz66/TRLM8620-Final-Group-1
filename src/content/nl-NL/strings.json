@@ -53,9 +53,9 @@
         "welcomeTitle": "Welcome to Galaxy L10n Supplies!"
     },
     "Browse": {
-        "browseTitleAll": "All",
-        "browseTitleDroids": " droids",
-        "browseTitleVehicles": " vehicles"
+        "browseTitleAll": "Alle producten",
+        "browseTitleDroids": "Alle droids",
+        "browseTitleVehicles": "Alle voertuigen"
     },
     
     "Checkout": {

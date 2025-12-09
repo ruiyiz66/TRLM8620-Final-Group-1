@@ -11,17 +11,18 @@ let Browse = {
         type = request.resource;
 
         let productMap = null;
-
-        let title = i18n.getString("Browse", "browseTitleAll");
+        let titleKey = "browseTitleAll";
 
         if(type == "droids") {
             productMap = productList.get('droids');
-            title += i18n.getString("Browse", "browseTitleDroids");
+            titleKey = "browseTitleDroids";
         }
         else if(type == "vehicles") {
             productMap = productList.get('vehicles');
-            title += i18n.getString("Browse", "browseTitleVehicles");
+            titleKey = "browseTitleVehicles";
         }
+
+        let title = i18n.getString("Browse", titleKey);
 
         //view is solely for HTML markup, contains no static text
         let view = `<section class="browsePage">
